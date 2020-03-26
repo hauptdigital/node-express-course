@@ -21,10 +21,21 @@ app.get("/users/:id", function(req, res) {
   });
 });
 
+const mockAnimalData = [{ name: "Owl" }, { name: "Giraffe" }];
+app.get("/animals/", function(req, res) {
+  res.json({
+    success: true,
+    message: "successfully got animals. Nice!",
+    animals: mockAnimalData
+  });
+});
+
 app.post("/login", function(req, res) {
+  console.log(req.Body);
   const username = req.body.username;
   const password = req.body.password;
-
+  console.log(username);
+  console.log(password);
   const mockUsername = "billyTheKid";
   const mockPassword = "superSecret";
 
